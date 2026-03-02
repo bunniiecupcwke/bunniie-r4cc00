@@ -3,23 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Página do Casal</title>
+<title>by r4cc00 & bunniiecupcwke</title>
 </head>
 <body style="margin:0;">
 
-<!-- Fundo fixo -->
 <div style="
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('girlfriend.gif') no-repeat center center;
+  background: url('https://media.discordapp.net/attachments/1478133635986096208/1478134170382237941/girlfriend.gif?ex=69a74b38&is=69a5f9b8&hm=1745aefb3f0545ee697cd1d452f6fb453bfa453f2fd2252c885182c448d13d53&=') no-repeat center center;
   background-size: cover;
   z-index: -1;
 "></div>
 
-<!-- Conteúdo centralizado -->
 <div style="
   position: relative;
   height: 100vh;
@@ -40,16 +38,13 @@
     bunniiecupcwke - r4cc00__
   </p>
 
-  <!-- Fotos + BOTÕES -->
   <div style="display: flex; flex-direction: column; align-items: center; gap: 40px; margin-top: 170px;">
     
-    <img src="bunniie.png" width="200" alt="Minha foto" />
-    <img src="racco.png" width="200" alt="Foto dele" />
+    <img src="https://media.discordapp.net/attachments/1478133635986096208/1478134075142180905/bunniie.png?ex=69a74b21&is=69a5f9a1&hm=b3ce69715a642088b12c62bfd38dc22a24c78eebcd395b2ac425dd676a6d3285&=&format=webp&quality=lossless" width="200" alt="Minha foto" />
+    <img src="https://media.discordapp.net/attachments/1478133635986096208/1478134125155323904/racco.png?ex=69a74b2d&is=69a5f9ad&hm=701fcba072018b0442ab71c680261bf2bc8a75be2b549c94a669312f447f0e0f&=&format=webp&quality=lossless" width="200" alt="Foto dele" />
 
-    <!-- BOTÕES -->
     <div style="display:flex; flex-direction:column; align-items:center; gap:15px; margin-top:20px;">
       
-      <!-- Discord -->
       <a href="https://discord.gg/98DCWSyWKX" target="_blank" style="
         border:2px solid #fdb0e3;
         color:#fda8e1;
@@ -59,7 +54,6 @@
         font-weight:bold;
       ">.gg/cyber404</a>
 
-      <!-- Play/Pause -->
       <button id="playBtn" style="
         border:2px solid #fdb0e3;
         color:#fda8e1;
@@ -70,7 +64,6 @@
         cursor:pointer;
       ">Pausar</button>
 
-      <!-- Twitter -->
       <a href="https://twitter.com/bunniiecupcwke" target="_blank" style="
         border:2px solid #fdb0e3;
         color:#fda8e1;
@@ -80,7 +73,6 @@
         font-weight:bold;
       ">twitter bbzetis</a>
 
-      <!-- Barra de música -->
       <div id="progress-container" style="
         width:300px;
         height:8px;
@@ -102,9 +94,8 @@
 
 </div>
 
-<!-- Áudio -->
 <audio id="audio" autoplay loop>
-  <source src="musicafundo.mp3" type="audio/mpeg" />
+  <source src="https://cdn.discordapp.com/attachments/1478133635986096208/1478134213399285760/musicafundo.mp3?ex=69a74b42&is=69a5f9c2&hm=d34c5d555dbdbd99a7c503850e25e975c876f5af1a6981913c4178d4a4a444d3&" type="audio/mpeg" />
 </audio>
 
 <script>
@@ -113,7 +104,6 @@ const playBtn = document.getElementById("playBtn");
 const progress = document.getElementById("progress");
 const container = document.getElementById("progress-container");
 
-// Play / Pause
 playBtn.onclick = () => {
   if (audio.paused) {
     audio.play();
@@ -124,13 +114,11 @@ playBtn.onclick = () => {
   }
 };
 
-// Atualizar barra
 audio.addEventListener("timeupdate", () => {
   const percent = (audio.currentTime / audio.duration) * 100;
   progress.style.width = percent + "%";
 });
 
-// Clicar na barra
 container.addEventListener("click", (e) => {
   const rect = container.getBoundingClientRect();
   const clickX = e.clientX - rect.left;
