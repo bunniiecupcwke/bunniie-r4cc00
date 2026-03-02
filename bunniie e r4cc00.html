@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Página do Casal</title>
+</head>
+<body style="margin:0;">
+
+<!-- Fundo fixo -->
+<div style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('girlfriend.gif') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+"></div>
+
+<!-- Conteúdo centralizado -->
+<div style="
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding-top: 50px;
+  font-family: Arial, sans-serif;
+">
+
+  <h1 style="color: rgb(255, 155, 230); font-weight: 900; margin: 0;">
+    OWNED BY
+  </h1>
+
+  <p style="color: rgb(255, 255, 255); font-size: 18px; margin: 5px 0 40px 0;">
+    bunniiecupcwke - r4cc00__
+  </p>
+
+  <!-- Fotos + BOTÕES -->
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 40px; margin-top: 170px;">
+    
+    <img src="bunniie.png" width="200" alt="Minha foto" />
+    <img src="racco.png" width="200" alt="Foto dele" />
+
+    <!-- BOTÕES -->
+    <div style="display:flex; flex-direction:column; align-items:center; gap:15px; margin-top:20px;">
+      
+      <!-- Discord -->
+      <a href="https://discord.gg/98DCWSyWKX" target="_blank" style="
+        border:2px solid #fdb0e3;
+        color:#fda8e1;
+        padding:6px 16px;
+        border-radius:20px;
+        text-decoration:none;
+        font-weight:bold;
+      ">.gg/cyber404</a>
+
+      <!-- Play/Pause -->
+      <button id="playBtn" style="
+        border:2px solid #fdb0e3;
+        color:#fda8e1;
+        padding:6px 16px;
+        border-radius:20px;
+        background:transparent;
+        font-weight:bold;
+        cursor:pointer;
+      ">Pausar</button>
+
+      <!-- Twitter -->
+      <a href="https://twitter.com/bunniiecupcwke" target="_blank" style="
+        border:2px solid #fdb0e3;
+        color:#fda8e1;
+        padding:6px 16px;
+        border-radius:20px;
+        text-decoration:none;
+        font-weight:bold;
+      ">twitter bbzetis</a>
+
+      <!-- Barra de música -->
+      <div id="progress-container" style="
+        width:300px;
+        height:8px;
+        background:rgba(255,255,255,0.3);
+        border-radius:4px;
+        margin-top:10px;
+        cursor:pointer;
+      ">
+        <div id="progress" style="
+          height:100%;
+          width:0%;
+          background:#ff9fdf;
+          border-radius:4px;
+        "></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Áudio -->
+<audio id="audio" autoplay loop>
+  <source src="musicafundo.mp3" type="audio/mpeg" />
+</audio>
+
+<script>
+const audio = document.getElementById("audio");
+const playBtn = document.getElementById("playBtn");
+const progress = document.getElementById("progress");
+const container = document.getElementById("progress-container");
+
+// Play / Pause
+playBtn.onclick = () => {
+  if (audio.paused) {
+    audio.play();
+    playBtn.innerText = "Pausar";
+  } else {
+    audio.pause();
+    playBtn.innerText = "Reproduzir";
+  }
+};
+
+// Atualizar barra
+audio.addEventListener("timeupdate", () => {
+  const percent = (audio.currentTime / audio.duration) * 100;
+  progress.style.width = percent + "%";
+});
+
+// Clicar na barra
+container.addEventListener("click", (e) => {
+  const rect = container.getBoundingClientRect();
+  const clickX = e.clientX - rect.left;
+  const newTime = (clickX / rect.width) * audio.duration;
+  audio.currentTime = newTime;
+});
+</script>
+
+</body>
+</html>
